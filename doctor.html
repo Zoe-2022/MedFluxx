@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile - Medfluxx</title>
+    <style>
+         /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #003f7f;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #003f7f;
+}
+
+#patient-orders-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#medications-list {
+    margin-top: 20px;
+}
+
+#medications-list .medication-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact p {
+    font-size: 1.1em;
+}
+
+.profile {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.complaints-section, .orders-section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#complaints-list, #doctor-orders-list {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+.complaint-item, .order-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.complaint-item:last-child, .order-item:last-child {
+    border-bottom: none;
+}
+
+button {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+        /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+.logout-container {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+   </style>
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Medfluxx Doctor Profile</h1>
+    </header>
+
+    <section class="profile-info">
+        <img src="doctor-photo.jpg" alt="Doctor Photo" class="profile-img">
+        <h2>Dr. John Smith</h2>
+        <p>Medfluxx Secret Code: <strong>DS12345</strong></p>
+    </section>
+
+     <!-- Complaints Section -->
+     <section class="complaints-section">
+        <h2>Patient Complaints</h2>
+        <div id="complaints-list"></div>
+    </section>
+
+    <!-- Orders Section -->
+    <section class="orders-section">
+        <h2>Patient Orders</h2>
+        <div id="doctor-orders-list"></div>
+    </section>
+
+    <section class="prescribe">
+        <h2>Prescribe Medication</h2>
+        <label for="patient-name">Patient Name</label>
+        <input type="text" id="patient-name" placeholder="Enter patient's name">
+
+        <label for="medication">Medication</label>
+        <input type="text" id="medication" placeholder="Enter medication name">
+
+        <label for="dose">Dose</label>
+        <input type="text" id="dose" placeholder="Enter dose information">
+
+        <button id="prescribe-medication">Prescribe</button>
+    </section>
+
+    <div class="logout-container">
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    
+
+    <!-- Footer Section -->
+ <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script>// Simulate prescribing medication
+        document.getElementById("prescribe-medication").addEventListener("click", function() {
+            const patientName = document.getElementById("patient-name").value;
+            const medication = document.getElementById("medication").value;
+            const dose = document.getElementById("dose").value;
+        
+            if (patientName && medication && dose) {
+                alert(`Prescription for ${patientName}: ${medication}, Dose: ${dose}`);
+                // Store prescription in the database and notify the patient
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+        
+
+        // Sample data for patient complaints and orders
+const patientComplaints = [
+    {
+        id: 'CMP001',
+        patientName: 'Jane Doe',
+        complaint: 'Severe headache and dizziness.',
+        submittedOn: '2024-12-10'
+    },
+    {
+        id: 'CMP002',
+        patientName: 'Mark Smith',
+        complaint: 'Persistent fever and body aches.',
+        submittedOn: '2024-12-11'
+    }
+];
+
+const patientOrders = [
+    {
+        id: 'ORD101',
+        patientName: 'Alice Johnson',
+        medication: 'Paracetamol',
+        quantity: 2,
+        status: 'Pending',
+        prescribedBy: 'Dr. John Doe'
+    },
+    {
+        id: 'ORD102',
+        patientName: 'David Brown',
+        medication: 'Antibiotics',
+        quantity: 1,
+        status: 'Shipped',
+        prescribedBy: 'Dr. John Doe'
+    }
+];
+
+// Display complaints
+function displayComplaints() {
+    const complaintsList = document.getElementById('complaints-list');
+    complaintsList.innerHTML = '';
+
+    if (patientComplaints.length === 0) {
+        complaintsList.innerHTML = '<p>No complaints received yet.</p>';
+        return;
+    }
+
+    patientComplaints.forEach(complaint => {
+        const complaintElement = document.createElement('div');
+        complaintElement.classList.add('complaint-item');
+        complaintElement.innerHTML = `
+            <h3>Complaint ID: ${complaint.id}</h3>
+            <p><strong>Patient:</strong> ${complaint.patientName}</p>
+            <p><strong>Complaint:</strong> ${complaint.complaint}</p>
+            <p><strong>Submitted On:</strong> ${complaint.submittedOn}</p>
+            <button onclick="respondToComplaint('${complaint.id}')">Respond</button>
+        `;
+        complaintsList.appendChild(complaintElement);
+    });
+}
+
+// Display orders
+function displayOrders() {
+    const ordersList = document.getElementById('doctor-orders-list');
+    ordersList.innerHTML = '';
+
+    if (patientOrders.length === 0) {
+        ordersList.innerHTML = '<p>No orders to review.</p>';
+        return;
+    }
+
+    patientOrders.forEach(order => {
+        const orderElement = document.createElement('div');
+        orderElement.classList.add('order-item');
+        orderElement.innerHTML = `
+            <h3>Order ID: ${order.id}</h3>
+            <p><strong>Patient:</strong> ${order.patientName}</p>
+            <p><strong>Medication:</strong> ${order.medication}</p>
+            <p><strong>Quantity:</strong> ${order.quantity}</p>
+            <p><strong>Status:</strong> ${order.status}</p>
+        `;
+        ordersList.appendChild(orderElement);
+    });
+}
+
+// Respond to complaint
+function respondToComplaint(complaintId) {
+    const complaint = patientComplaints.find(c => c.id === complaintId);
+    if (complaint) {
+        alert(`Responding to Complaint ID: ${complaintId}\nPatient: ${complaint.patientName}\nComplaint: ${complaint.complaint}`);
+        // In real application, redirect to a response form or send response
+    }
+}
+
+// Initialize the page
+displayComplaints();
+displayOrders();
+
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to login page (or handle session clearing logic here)
+        window.location.href = 'ordermedication.html'; // Replace 'ordermedication.html' with the actual login page URL
+    }
+}
+
+    </script>
+</body>
+</html>

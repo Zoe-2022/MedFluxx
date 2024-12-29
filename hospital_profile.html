@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Profile | Medfluxx</title>
+   <style>
+    /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #003f7f;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #003f7f;
+}
+
+#patient-orders-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#medications-list {
+    margin-top: 20px;
+}
+
+#medications-list .medication-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact p {
+    font-size: 1.1em;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+.logout-container {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+
+
+   </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Hospital Profile</h1>
+        <div class="profile-header">
+            <img src="hospital-logo.jpg" alt="Hospital Logo" class="profile-pic">
+            <div class="profile-details">
+                <h1>Hospital Name</h1>
+                <p><strong>Medfluxx Secret Code:</strong> DEF456</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="orders">
+            <h2>Patient Orders</h2>
+            <div id="patient-orders-list"></div>
+        </section>
+
+        <section class="manage-medications">
+            <h2>Manage Medications</h2>
+            <form id="medication-form">
+                <label for="medication-name">Medication Name:</label>
+                <input type="text" id="medication-name" required>
+
+                <label for="medication-price">Price:</label>
+                <input type="number" id="medication-price" required>
+
+                <label for="medication-quantity">Quantity Available:</label>
+                <input type="number" id="medication-quantity" required>
+
+                <button type="submit">Add Medication</button>
+            </form>
+
+            <h3>Available Medications</h3>
+            <div id="medications-list"></div>
+        </section>
+
+        <section class="order-details">
+            <h2>Order Details</h2>
+            <form id="order-response-form">
+                <label for="order-id">Order ID:</label>
+                <input type="text" id="order-id" disabled>
+
+                <label for="order-status">Order Status:</label>
+                <select id="order-status">
+                    <option value="Pending">Pending</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+
+                <label for="delivery-rider">Assign Delivery Rider:</label>
+                <input type="text" id="delivery-rider" placeholder="Rider's Name or ID">
+
+                <button type="submit">Update Order</button>
+            </form>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Details</h2>
+            <p><strong>Phone Number:</strong> +1234567890</p>
+            <p><strong>Email:</strong> hospital@example.com</p>
+            <p>Contact us on WhatsApp for immediate responses.</p>
+        </section>
+    </main>
+
+    <div class="logout-container">
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    
+
+     <!-- Footer Section -->
+ <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Sample data for orders and medications (This would be dynamically fetched in a real application)
+const patientOrders = [
+    {
+        id: 'ORD001',
+        patientName: 'John Doe',
+        medication: 'Amoxicillin',
+        quantity: 2,
+        status: 'Pending',
+        prescribedBy: 'Dr. Jane Smith'
+    },
+    {
+        id: 'ORD002',
+        patientName: 'Jane Doe',
+        medication: 'Ibuprofen',
+        quantity: 1,
+        status: 'Shipped',
+        prescribedBy: 'Dr. Mark Johnson'
+    }
+];
+
+const medications = [
+    {
+        name: 'Amoxicillin',
+        price: 15.00,
+        quantity: 100
+    },
+    {
+        name: 'Ibuprofen',
+        price: 7.50,
+        quantity: 50
+    }
+];
+
+// Function to display patient orders
+function displayOrders() {
+    const ordersList = document.getElementById('patient-orders-list');
+    ordersList.innerHTML = '';
+
+    if (patientOrders.length === 0) {
+        ordersList.innerHTML = '<p>No orders yet. Please make an order.</p>';
+        return;
+    }
+
+    patientOrders.forEach(order => {
+        const orderElement = document.createElement('div');
+        orderElement.classList.add('order-item');
+
+        orderElement.innerHTML = `
+            <h3>Order ID: ${order.id}</h3>
+            <p><strong>Patient:</strong> ${order.patientName}</p>
+            <p><strong>Medication:</strong> ${order.medication}</p>
+            <p><strong>Quantity:</strong> ${order.quantity}</p>
+            <p><strong>Prescribed by:</strong> ${order.prescribedBy}</p>
+            <div class="order-status">
+                <label for="status-${order.id}">Order Status:</label>
+                <select id="status-${order.id}" data-order-id="${order.id}">
+                    <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                    <option value="Shipped" ${order.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+                    <option value="Delivered" ${order.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                </select>
+                <button onclick="updateOrderStatus('${order.id}')">Update Status</button>
+            </div>
+        `;
+        ordersList.appendChild(orderElement);
+    });
+}
+
+// Function to update order status
+function updateOrderStatus(orderId) {
+    const orderStatusElement = document.querySelector(`#status-${orderId}`);
+    const newStatus = orderStatusElement.value;
+
+    const order = patientOrders.find(order => order.id === orderId);
+    if (order) {
+        order.status = newStatus;
+        alert(`Order ID: ${orderId} has been updated to ${newStatus}`);
+    }
+
+    displayOrders();
+}
+
+// Function to display medications
+function displayMedications() {
+    const medicationsList = document.getElementById('medications-list');
+    medicationsList.innerHTML = '';
+
+    medications.forEach(med => {
+        const medicationElement = document.createElement('div');
+        medicationElement.classList.add('medication-item');
+
+        medicationElement.innerHTML = `
+            <h3>${med.name}</h3>
+            <p><strong>Price:</strong> $${med.price.toFixed(2)}</p>
+            <p><strong>Quantity Available:</strong> ${med.quantity}</p>
+        `;
+        medicationsList.appendChild(medicationElement);
+    });
+}
+
+// Function to handle adding new medication
+document.getElementById('medication-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('medication-name').value.trim();
+    const price = parseFloat(document.getElementById('medication-price').value);
+    const quantity = parseInt(document.getElementById('medication-quantity').value);
+
+    if (!name || isNaN(price) || isNaN(quantity)) {
+        alert('Please fill in all fields correctly.');
+        return;
+    }
+
+    medications.push({ name, price, quantity });
+    displayMedications();
+    alert('Medication added successfully!');
+
+    // Reset form fields
+    e.target.reset();
+});
+
+// Function to handle order response form
+document.getElementById('order-response-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const orderId = document.getElementById('order-id').value.trim();
+    const status = document.getElementById('order-status').value;
+    const rider = document.getElementById('delivery-rider').value.trim();
+
+    if (!orderId || !status || !rider) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    alert(`Order ID: ${orderId} status updated to ${status}. Assigned rider: ${rider}`);
+    // Here you would typically update the order in the backend
+
+    displayOrders(); // Re-render the order list
+});
+
+// Initial function calls
+displayOrders();
+displayMedications();
+
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to login page (or handle session clearing logic here)
+        window.location.href = 'ordermedication.html'; // Replace 'ordermedication.html' with the actual login page URL
+    }
+}
+
+
+</script>
+</body>
+</html>

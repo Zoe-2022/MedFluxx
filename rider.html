@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Profile - Medfluxx</title>
+   <style>
+    /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #003f7f;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #003f7f;
+}
+
+#patient-orders-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#medications-list {
+    margin-top: 20px;
+}
+
+#medications-list .medication-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact p {
+    font-size: 1.1em;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+.assigned-deliveries {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.delivery-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.delivery-item:last-child {
+    border-bottom: none;
+}
+
+.notify-btn {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.notify-btn:hover {
+    background-color: #0056b3;
+}
+
+.logout-container {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+   </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Medfluxx Rider Profile</h1>
+    </header>
+
+    <section class="profile-info">
+        <img src="rider-photo.jpg" alt="Rider Photo" class="profile-img">
+        <h2>Rider 1</h2>
+        <p>Medfluxx Secret Code: <strong>RIDER123</strong></p>
+    </section>
+
+    <section class="deliveries">
+        <h2>Your Deliveries</h2>
+        <div id="delivery-list"></div>
+    </section>
+
+    <!-- Assigned Deliveries Section -->
+    <section class="assigned-deliveries">
+        <h2>Assigned Deliveries</h2>
+        <div id="assigned-delivery-list"></div>
+    </section>
+
+    <div class="logout-container">
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    
+    <!-- Footer Section -->
+ <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        // Simulate deliveries
+const deliveries = [
+    { id: 1, orderId: "123", patientName: "John Doe", medication: "Aspirin", status: "Pending" },
+    { id: 2, orderId: "124", patientName: "Jane Doe", medication: "Tylenol", status: "Pending" },
+];
+
+function displayDeliveries() {
+    const deliveryContainer = document.getElementById("delivery-list");
+    deliveryContainer.innerHTML = ''; // Clear existing content
+
+    deliveries.forEach(delivery => {
+        const deliveryDiv = document.createElement("div");
+        deliveryDiv.classList.add("delivery");
+
+        const deliveryDetails = `
+            <p><strong>Order ID:</strong> ${delivery.orderId}</p>
+            <p><strong>Patient Name:</strong> ${delivery.patientName}</p>
+            <p><strong>Medication:</strong> ${delivery.medication}</p>
+            <p><strong>Status:</strong> ${delivery.status}</p>
+            <button class="accept-delivery">Accept Delivery</button>
+        `;
+        deliveryDiv.innerHTML = deliveryDetails;
+        deliveryContainer.appendChild(deliveryDiv);
+    });
+}
+
+// Simulate accepting a delivery
+document.querySelector("#delivery-list").addEventListener("click", function(e) {
+    if (e.target.classList.contains("accept-delivery")) {
+        alert("Delivery accepted!");
+    }
+});
+
+// Display deliveries on page load
+displayDeliveries();
+
+// Sample delivery data
+const riderDeliveries = [
+    {
+        id: 'DEL101',
+        pharmacy: 'City Pharmacy',
+        patientName: 'Alice Johnson',
+        medication: 'Paracetamol',
+        quantity: 2,
+        deliveryStatus: 'Pending'
+    },
+    {
+        id: 'DEL102',
+        pharmacy: 'Health Hub',
+        patientName: 'David Brown',
+        medication: 'Antibiotics',
+        quantity: 1,
+        deliveryStatus: 'Pending'
+    }
+];
+
+// Display assigned deliveries
+function displayAssignedDeliveries() {
+    const deliveryList = document.getElementById('assigned-delivery-list');
+    deliveryList.innerHTML = '';
+
+    if (riderDeliveries.length === 0) {
+        deliveryList.innerHTML = '<p>No deliveries assigned yet.</p>';
+        return;
+    }
+
+    riderDeliveries.forEach(delivery => {
+        const deliveryElement = document.createElement('div');
+        deliveryElement.classList.add('delivery-item');
+        deliveryElement.innerHTML = `
+            <h3>Delivery ID: ${delivery.id}</h3>
+            <p><strong>Pharmacy:</strong> ${delivery.pharmacy}</p>
+            <p><strong>Patient:</strong> ${delivery.patientName}</p>
+            <p><strong>Medication:</strong> ${delivery.medication}</p>
+            <p><strong>Quantity:</strong> ${delivery.quantity}</p>
+            <button class="notify-btn" onclick="notifyDelivery('${delivery.id}')">Notify Delivery</button>
+        `;
+        deliveryList.appendChild(deliveryElement);
+    });
+}
+
+// Notify pharmacy or hospital upon delivery
+function notifyDelivery(deliveryId) {
+    const deliveryIndex = riderDeliveries.findIndex(d => d.id === deliveryId);
+    if (deliveryIndex !== -1) {
+        riderDeliveries[deliveryIndex].deliveryStatus = 'Delivered';
+        alert(`Delivery ID: ${deliveryId} has been confirmed as delivered.\nNotification sent to ${riderDeliveries[deliveryIndex].pharmacy}.`);
+        // Backend integration can be added here to notify pharmacy/hospital
+        displayAssignedDeliveries();
+    }
+}
+
+// Mock function to send a delivery notification (Placeholder for backend API integration)
+function sendDeliveryNotification(email, delivery) {
+    console.log(`Sending notification to ${email}...`);
+    console.log(`Order Delivered: Delivery ID: ${delivery.id}, Patient: ${delivery.patientName}, Medication: ${delivery.medication}.`);
+    // Add API call to notify the pharmacy or hospital
+}
+
+// Initialize the page
+displayAssignedDeliveries();
+
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to login page (or handle session clearing logic here)
+        window.location.href = 'ordermedication.html'; // Replace 'ordermedication.html' with the actual login page URL
+    }
+}
+
+
+    </script>
+</body>
+</html>

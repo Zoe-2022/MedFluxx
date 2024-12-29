@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tips and Education - Medfluxx</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+
+        .container {
+            width: 90%;
+            display: flex;
+            gap: 20px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+       
+
+        /* Subscription Plan Section */
+        .plan-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .plan {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 20%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan h3 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .plan p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .plan button {
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .plan button:hover {
+            background-color: #00509e;
+        }
+
+        /* Health Tips Section */
+        .search-section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-section input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tip-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-card h3 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .tip-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+         <!-- Subscription Plans -->
+         <section class="plan-section">
+          <div class="plan" id="free-plan">
+              <h3>Free Plan</h3>
+              <p>Access to basic health tips, articles, and educational content.</p>
+              <button onclick="selectPlan('free')">Select Plan</button>
+          </div>
+
+          <div class="plan" id="premium-basic-plan">
+              <h3>Premium Basic Plan</h3>
+              <p>Access to advanced health tips, research articles, videos, and more.</p>
+              <button onclick="selectPlan('premium-basic')">Select Plan</button>
+          </div>
+
+          <div class="plan" id="premium-advanced-plan">
+              <h3>Premium Advanced Plan</h3>
+              <p>Access to personalized health coaching, in-depth courses, live seminars, and exclusive content.</p>
+              <button onclick="selectPlan('premium-advanced')">Select Plan</button>
+          </div>
+                      <div class="plan" id="premium-expert-plan">
+                <h3>Premium Expert Plan</h3>
+                <p>Get all Premium Advanced features plus one-on-one consultations with healthcare experts, personalized research.</p>
+                <button onclick="selectPlan('premium-expert')">Select Plan</button>
+            </div>
+        </section>
+    </div>
+      
+<div>
+   <!-- Search Section -->
+   <section class="search-section">
+    <h2>Health Tips and Education</h2>
+    <p>Search for health tips, articles, videos, and more:</p>
+    <input type="text" id="searchInput" placeholder="Search health tips..." onkeyup="filterTips()">
+</section>
+
+<!-- Health Tips Section -->
+<section class="tips-section" id="tipsSection">
+  <!-- Tip Cards -->
+  <div class="tip-card" data-category="free">
+      <h3>Basic Nutrition Tips</h3>
+      <p>Learn about the essentials of nutrition and how a balanced diet contributes to good health.</p>
+  </div>
+  <div class="tip-card" data-category="free">
+      <h3>Exercise and Fitness</h3>
+      <p>Understand the importance of staying active and how exercise improves overall health.</p>
+  </div>
+  <div class="tip-card" data-category="premium-basic">
+      <h3>Advanced Weight Management</h3>
+      <p>Explore deeper methods of managing weight through advanced techniques, personalized plans, and consultations.</p>
+  </div>
+  <div class="tip-card" data-category="premium-advanced">
+      <h3>Mental Health and Well-being</h3>
+      <p>Access advanced strategies for mental health management, including stress management and mindfulness.</p>
+  </div>
+  <div class="tip-card" data-category="premium-expert">
+    <h3>Personalized Wellness Plans</h3>
+    <p>Get a custom wellness plan designed by top healthcare professionals based on your health data.</p>
+</div>
+</section>
+</div>
+<br>
+<br>
+      
+<div>
+   <!-- Content Upload Section (For Healthcare Practitioners) -->
+   <section id="content-upload" class="search-section">
+    <h2>Upload Content (Healthcare Professionals)</h2>
+    <form id="uploadForm">
+        <label for="contentTitle">Content Title:</label>
+        <br>
+        <input type="text" id="contentTitle" name="contentTitle" required placeholder="Title">
+      </form>
+<br>
+      <form>
+        <label for="contentCategory">Category:</label>
+        <select id="contentCategory" name="contentCategory" required>
+            <option value="free-plan">Free-Plan</option>
+            <option value="premium-basic-plan">Premium Basic Plan</option>
+            <option value="premium-advanced-plan">Premium Advanced Plan</option>
+            <option value="premium-expert-plan">Premium Expert Plan</option>
+        </select>
+        
+        <label for="contentFile">Upload File (Video, Article, etc.):</label>
+        <input type="file" id="contentFile" name="contentFile" accept="video/*, .pdf, .doc, .docx" required>
+      </form>
+<br>
+    <form>
+      <label for="contentDescription">Description:</label>
+    <textarea style="width: 90%; height: 200px; padding: 20px; font-size: i6px; line-height: 1.5; border: 2px solid #ccc; border-radius: 8px; resize: both"id="contentDescription" name="contentDescription" required placeholder="Describe Your Content Here"></textarea>
+    <br>
+    <br>
+    </form>
+    <button type="submit">Upload Content</button>
+    <form>
+
+    </form>
+</section>
+</div>
+    
+
+   <!-- Footer Section -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+   <!-- JavaScript -->
+   <script>
+    let currentPlan = '';
+
+    // Select Subscription Plan
+    function selectPlan(plan) {
+        currentPlan = plan;
+        alert('You have selected the ' + plan + ' plan');
+        updateContentVisibility();
+    }
+
+    // Filter Tips based on search input
+    function filterTips() {
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        const tips = document.querySelectorAll('.tip-card');
+
+        tips.forEach(tip => {
+            const tipContent = tip.textContent.toLowerCase();
+            if (tipContent.includes(searchQuery)) {
+                tip.style.display = 'block';
+            } else {
+                tip.style.display = 'none';
+              }
+            });
+        }
+
+        // Update Content Visibility based on the selected subscription plan
+        function updateContentVisibility() {
+            const tips = document.querySelectorAll('.tip-card');
+
+            tips.forEach(tip => {
+                if (currentPlan === 'free' && (tip.getAttribute('data-category') === 'premium-basic' || tip.getAttribute('data-category') === 'premium-advanced' || tip.getAttribute('data-category') === 'premium-expert')) {
+                    tip.style.display = 'none';
+                } else if (currentPlan === 'premium-basic' && (tip.getAttribute('data-category') === 'premium-advanced' || tip.getAttribute('data-category') === 'premium-expert')) {
+                    tip.style.display = 'none';
+                } else if (currentPlan === 'premium-advanced' && tip.getAttribute('data-category') === 'premium-expert') {
+                    tip.style.display = 'none';
+                } else {
+                    tip.style.display = 'block';
+                  }
+            });
+        }
+
+        // Handle content upload (Healthcare Practitioners)
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('contentTitle').value;
+            const category = document.getElementById('contentCategory').value;
+            const description = document.getElementById('contentDescription').value;
+            const file = document.getElementById('contentFile').files[0];
+
+            alert('Content Uploaded! Title: ' + title + ', Category: ' + category);
+            // Further processing to save content in a backend or database would go here
+        });
+    </script>       
+</body>
+</html>

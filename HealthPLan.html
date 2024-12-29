@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Plan - Medfluxx</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Health Plan Section */
+        .health-plan-section {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .health-plan-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .health-plan-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #0056b3;
+            font-size: 16px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .submit-btn {
+            padding: 12px 24px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #00509e;
+        }
+
+        /* Health Plan Details Section */
+        .plan-details {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-details h3 {
+            margin-bottom: 20px;
+        }
+
+        .plan-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .plan-details ul li {
+            background-color: #e1f5fe;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+/* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Health Plan Form Section -->
+        <section class="health-plan-section">
+            <h2>Create Your Personalized Health Plan</h2>
+            <p>Fill in the details to create a personalized health plan that suits your lifestyle and health goals.</p>
+            
+            <form id="healthPlanForm" class="health-plan-form">
+                <!-- Health Goal -->
+                <div class="form-group">
+                    <label for="goal">Health Goal</label>
+                    <select id="goal" name="goal" required>
+                        <option value="">Select Your Health Goal</option>
+                        <option value="weight-loss">Weight Loss</option>
+                        <option value="muscle-gain">Muscle Gain</option>
+                        <option value="general-fitness">General Fitness</option>
+                        <option value="stress-relief">Stress Relief</option>
+                    </select>
+                </div>
+
+                <!-- Preferred Exercise -->
+                <div class="form-group">
+                    <label for="exercise">Preferred Exercise Type</label>
+                    <select id="exercise" name="exercise" required>
+                        <option value="">Select Exercise Type</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength-training">Strength Training</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="pilates">Pilates</option>
+                    </select>
+                </div>
+
+                <!-- Dietary Preferences -->
+                <div class="form-group">
+                    <label for="diet">Dietary Preferences</label>
+                    <input type="text" id="diet" name="diet" placeholder="e.g., Vegetarian, Keto, Gluten-Free" required>
+                </div>
+
+                <!-- Any Medical Conditions -->
+                <div class="form-group">
+                    <label for="conditions">Any Existing Medical Conditions?</label>
+                    <textarea id="conditions" name="conditions" placeholder="List any medical conditions you are aware of (optional)"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Create Health Plan</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Health Plan Details Section -->
+        <section class="plan-details" id="planDetails" style="display: none;">
+            <h3>Your Personalized Health Plan</h3>
+            <ul id="healthPlanList"></ul>
+        </section>
+    </div>
+
+   <!-- Footer Section -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('healthPlanForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const goal = document.getElementById('goal').value;
+            const exercise = document.getElementById('exercise').value;
+            const diet = document.getElementById('diet').value;
+            const conditions = document.getElementById('conditions').value;
+
+            if (!goal || !exercise || !diet) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+
+            // Prepare and display health plan details
+            const planList = document.getElementById('healthPlanList');
+            planList.innerHTML = `
+                <li><strong>Health Goal:</strong> ${goal}</li>
+                <li><strong>Preferred Exercise:</strong> ${exercise}</li>
+                <li><strong>Dietary Preferences:</strong> ${diet}</li>
+                <li><strong>Medical Conditions:</strong> ${conditions ? conditions : "None"}</li>
+            `;
+            
+            // Show the health plan details section
+            document.getElementById('planDetails').style.display = 'block';
+
+            // Optionally reset the form
+            document.getElementById('healthPlanForm').reset();
+        });
+    </script>
+</body>
+</html>

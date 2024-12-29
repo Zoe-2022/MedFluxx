@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MedFluxx - Your trusted platform for virtual healthcare services, including AI-powered symptom checks, virtual consultations, and secure messaging.">
+    <meta name="keywords" content="healthcare, virtual consultations, telemedicine, AI, medication ordering">
+    <meta name="author" content="MedFluxx">
+    <title>MedFluxx - Home</title>
+    <style>
+
+        /* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%; /* Ensures the image doesn’t overflow its container */
+    height: auto;   /* Maintains the aspect ratio of the image */
+    display: block; /* Prevents inline space issues */
+}
+
+/* Header */
+header {
+    background-color: #0056b3;
+    padding: 20px 0;
+    width: 100%;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+.btn {
+    background-color: #003f7f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #003377;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #003377;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+}
+
+#hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#hero h4 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#hero .cta-buttons a {
+    margin: 10px;
+}
+
+/* Features Section */
+#features {
+    background-color: #fff;
+    padding: 40px 0;
+    width: 100%;
+}
+
+#features h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    flex: 1;
+    max-width: 20%;
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.feature-item img {
+    width: 100%;              /* Ensures the image takes the full width of its container */
+    height: 250px;            /* Fixed height for all images */
+    object-fit: cover;        /* Ensures images are properly scaled and cropped to fit */
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 1em;
+}
+
+/* Testimonials Section */
+#testimonials {
+    background-color: #ecf0f1;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    flex: 1;
+    max-width: 23%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-item h3 {
+    font-weight: bold;
+}
+
+/* Mission Section */
+#mission {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#mission h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.mission-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.mission-text {
+    max-width: 50%;
+    text-align: left;
+    padding: 20px;
+}
+
+.mission-text p {
+    font-size: 1.1em;
+}
+
+
+.mission-container img:hover {
+    transform: scale(1.05);              /* Slight zoom effect on hover */
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 18px;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+                padding: 10px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+        
+          /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px; 
+    width: 100%;  
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+    text-align: left;
+    width: 100%;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>MedFluxx</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="signup.html" class="btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to MedFluxx</h1>
+            <h4>“Where Technology Meets Compassion and Care Meets Innovation.”</h4>
+            <p>Get access to expert healthcare services from the comfort of your home!</p>
+            <br> <br>
+            <div class="cta-buttons">
+                <a href="signup.html" class="btn-primary" style="color: white;">Start Now</a>
+                <a href="about.html" class="btn-secondary" style="color: white;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <h2>Our Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <img src="C:\Users\hp\Desktop\My Web Page\AI-Powered Healthcare.jpg" alt="AI-Powered Healthcare">
+                <h3>Personalized Healthcare</h3>
+                <p>AI-powered symptom checking provides personalized care, anytime.</p>
+            </div>
+            <div class="feature-item">
+                <img src="C:\Users\hp\Desktop\My Web Page\Virtual Consultations.jpg" alt="Virtual Consultations">
+                <h3>Virtual Consultations</h3>
+                <p>Consult licensed healthcare professionals through secure video calls and messages.</p>
+            </div>
+            <div class="feature-item">
+                <img src="C:\Users\hp\Desktop\My Web Page\Platform Accessibility.jpg" alt="Platform Accessibility">
+                <h3>Accessible Everywhere</h3>
+                <p>Available on mobile apps, web platforms, and SMS/USSD services.</p>
+            </div>
+            <div class="feature-item">
+                <img src="C:\Users\hp\Desktop\My Web Page\Secured Messaging.jpg" alt="Secure Messaging">
+                <h3>Secure Messaging</h3>
+                <p>Communicate securely with healthcare professionals.</p>
+            </div>
+            <div class="feature-item">
+                <img src="C:\Users\hp\Desktop\My Web Page\Ordering Medications.jpg" alt="Order Medications">
+                <h3>Ordering Medications</h3>
+                <p>Order medications and have them delivered to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <h2 style="text-align: center;">What Our Users Say</h2>
+        <br>
+        <br>
+        <div class="testimonial-container">
+            <div class="testimonial-item">
+                <p>"MedFluxx revolutionized my access to healthcare. The AI system is intuitive and helpful. I feel cared for 24/7."</p>
+                <h3>- John Doe</h3>
+            </div>
+            <div class="testimonial-item">
+                <p>"Virtual consultations saved me so much time. I could talk to a doctor without leaving home. Highly recommend!"</p>
+                <h3>- Alex Johnson</h3>
+            </div>
+            <div class="testimonial-item">
+                <p>"The platform is user-friendly. Using SMS for healthcare access is a game-changer for me."</p>
+                <h3>- Jane Smith</h3>
+            </div>
+            <div class="testimonial-item">
+                <p>"I was skeptical at first, but MedFluxx exceeded my expectations. Secure messaging made it easy to get professional advice."</p>
+                <h3>- Emily Brown</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <div class="mission-container">
+            <img src="C:\Users\hp\Desktop\My Web Page\Telemedicine.jpg" alt="Telemedicine" width="500" height="200">
+            <div class="mission-text">
+                <p>At MedFluxx, we're dedicated to making quality healthcare accessible to all, especially underserved communities. Whether via our mobile app, web platform, or SMS/USSD solutions, we ensure everyone can access healthcare services.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; right:20px; background-color:#004d99; color:white; border:none; padding:10px 20px; border-radius:50%; cursor:pointer;">&#8593;</button>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>Medfluxx</h4>
+                    <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+                </div>
+                <div class="footer-middle">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <ul class="social-links">
+                        <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                        <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                        <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+      // Scroll to Top Button Functionality
+window.onscroll = function() {
+    const button = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+    </script>
+</body>
+
+</html>

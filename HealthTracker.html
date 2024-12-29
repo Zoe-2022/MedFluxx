@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker - Medfluxx</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Health Tracker Section */
+        .tracker-section {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tracker-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tracker-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #0056b3;
+            font-size: 16px;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .submit-btn {
+            padding: 12px 24px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #00509e;
+        }
+
+        /* Health Tracker Details Section */
+        .tracker-details {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tracker-details h3 {
+            margin-bottom: 20px;
+        }
+
+        .tracker-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tracker-details ul li {
+            background-color: #e1f5fe;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+       /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Health Tracker Form Section -->
+        <section class="tracker-section">
+            <h2>Track Your Health Progress</h2>
+            <p>Enter your daily health metrics to track your progress over time.</p>
+            
+            <form id="healthTrackerForm" class="tracker-form">
+                <!-- Steps -->
+                <div class="form-group">
+                    <label for="steps">Steps Walked</label>
+                    <input type="number" id="steps" name="steps" placeholder="Enter number of steps" required>
+                </div>
+
+                <!-- Calories -->
+                <div class="form-group">
+                    <label for="calories">Calories Burned</label>
+                    <input type="number" id="calories" name="calories" placeholder="Enter calories burned" required>
+                </div>
+
+                <!-- Weight -->
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" name="weight" placeholder="Enter your current weight" required>
+                </div>
+
+                <!-- Water Intake -->
+                <div class="form-group">
+                    <label for="water">Water Intake (liters)</label>
+                    <input type="number" id="water" name="water" placeholder="Enter amount of water consumed" step="0.1" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit Tracker</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Health Tracker Details Section -->
+        <section class="tracker-details" id="trackerDetails" style="display: none;">
+            <h3>Your Health Tracker Summary</h3>
+            <ul id="trackerSummary"></ul>
+        </section>
+    </div>
+
+   <!-- Footer Section -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('healthTrackerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const steps = document.getElementById('steps').value;
+            const calories = document.getElementById('calories').value;
+            const weight = document.getElementById('weight').value;
+            const water = document.getElementById('water').value;
+
+            if (!steps || !calories || !weight || !water) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Prepare and display health tracker details
+            const trackerSummary = document.getElementById('trackerSummary');
+            trackerSummary.innerHTML = `
+                <li><strong>Steps Walked:</strong> ${steps} steps</li>
+                <li><strong>Calories Burned:</strong> ${calories} kcal</li>
+                <li><strong>Weight:</strong> ${weight} kg</li>
+                <li><strong>Water Intake:</strong> ${water} liters</li>
+            `;
+            
+            // Show the health tracker summary section
+            document.getElementById('trackerDetails').style.display = 'block';
+
+            // Optionally reset the form
+            document.getElementById('healthTrackerForm').reset();
+        });
+    </script>
+</body>
+</html>

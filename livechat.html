@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat | MedFluxx</title>
+    <style>
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056b3; /* Header background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 10px 0 0;
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.chat-box {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-log {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.chat-log p {
+    margin: 10px 0;
+}
+
+.chat-log .system {
+    color: #00509e;
+}
+
+.chat-log .user {
+    color: #000;
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: none;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #00509e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003d73;
+}
+
+/* Chat Controls */
+.chat-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.chat-controls button {
+    background-color: #e74c3c;
+}
+
+.chat-controls button:hover {
+    background-color: #c0392b;
+}
+
+
+        /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+/* Footer Links */
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffcc00; /* Color change on hover, you can choose any color you like */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Live Chat Support</h1>
+        <p>Connect with our support team for immediate assistance.</p>
+    </header>
+
+    <section class="chat-container">
+        <div id="chatBox" class="chat-box">
+            <div id="chatLog" class="chat-log">
+                <p class="message system">Welcome to MedFluxx live support. How can we assist you today?</p>
+            </div>
+            <textarea id="userMessage" placeholder="Type your message here..."></textarea>
+            <button id="sendBtn">Send</button>
+        </div>
+
+        <div class="chat-controls">
+            <button id="endChatBtn">End Chat</button>
+            <button id="minimizeBtn">Minimize</button>
+        </div>
+    </section>
+
+  
+     <!-- Footer Section -->
+     <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>Medfluxx</h4>
+                    <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+                </div>
+                <div class="footer-middle">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <h4>Follow Us</h4>
+                    <ul class="social-links">
+                        <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                        <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                        <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+            <a href="technical-support.html">Back to Technical Support</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("sendBtn").addEventListener("click", function() {
+    const userMessage = document.getElementById("userMessage").value.trim();
+    
+    if (userMessage) {
+        // Append user message to the chat log
+        const userMessageElement = document.createElement("p");
+        userMessageElement.classList.add("user");
+        userMessageElement.textContent = userMessage;
+        document.getElementById("chatLog").appendChild(userMessageElement);
+
+        // Clear the input field
+        document.getElementById("userMessage").value = "";
+
+        // Scroll chat log to the bottom
+        document.getElementById("chatLog").scrollTop = document.getElementById("chatLog").scrollHeight;
+
+        // Simulate support agent response
+        setTimeout(function() {
+            const agentResponseElement = document.createElement("p");
+            agentResponseElement.classList.add("system");
+            agentResponseElement.textContent = "Thank you for your message! A support agent will assist you shortly.";
+            document.getElementById("chatLog").appendChild(agentResponseElement);
+            document.getElementById("chatLog").scrollTop = document.getElementById("chatLog").scrollHeight;
+        }, 1000); // Simulate a delay of 1 second
+    }
+});
+
+document.getElementById("endChatBtn").addEventListener("click", function() {
+    const endChatConfirmation = confirm("Are you sure you want to end the chat?");
+    if (endChatConfirmation) {
+        alert("Chat ended. Thank you for using MedFluxx support!");
+        // Redirect or close chat window here
+        window.location.href = "/"; // Redirect to homepage or another page
+    }
+});
+
+document.getElementById("minimizeBtn").addEventListener("click", function() {
+    const chatBox = document.querySelector(".chat-box");
+    chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
+});
+
+    </script>
+</body>
+</html>

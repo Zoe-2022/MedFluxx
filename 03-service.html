@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedFluxx - Service Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        h1, h2 {
+            font-family: 'Roboto', sans-serif;
+            color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c8fc3;
+        }
+
+       /* Header */
+header {
+    background-color: #0056b3;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+.btn {
+    background-color: #003f7f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #003377;
+}
+
+        /* Service Section */
+        #our-service {
+            padding: 2rem 5%;
+            background-color: #fff;
+        }
+
+        #our-service h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c8fc3;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h2 {
+            color: #0056b3;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Call to Action Section */
+        #call-to-action {
+            background: #0056b3;
+            color: #fff;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        #call-to-action h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        #call-to-action p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #call-to-action a {
+            padding: 1rem 2rem;
+            background: #fff;
+            color: #2c8fc3;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        #call-to-action a:hover {
+            background: #003f7f;
+            color: #fff;
+        }
+
+                 /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+    </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+        <h1 style="color: #ffffff;">MedFluxx</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="signup.html" class="btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Service categories-->
+    <section id="our-service">
+        <h1 style="color: #0056b3;">Our Services</h1>
+        <div class="service-card">
+            <h2>Virtual Consultation</h2>
+            <p>Connect with licensed healthcare professionals from the comfort of your home for personalized consultations and expert advice.</p>
+        </div>
+        <div class="service-card">
+            <h2>AI-Powered Symptom Checking and Triage</h2>
+            <p>Utilize our intelligent tools to analyze symptoms and receive guidance on the next steps for care.</p>
+        </div>
+        <div class="service-card">
+            <h2>Personal Health Plan and Coaching</h2>
+            <p>Receive customized health plans and coaching to help you achieve your wellness goals.</p>
+        </div>
+        <div class="service-card">
+            <h2>Holistic Health Management and Tracking</h2>
+            <p>Track and manage your overall health with integrated tools for a balanced lifestyle.</p>
+        </div>
+        <div class="service-card">
+            <h2>Secure Messaging and Appointment Scheduling</h2>
+            <p>Communicate securely with healthcare providers and manage your appointments with ease.</p>
+        </div>
+        <div class="service-card">
+            <h2>Access to Licensed Healthcare Professionals</h2>
+            <p>Get access to a network of certified healthcare professionals to meet your medical needs.</p>
+        </div>
+        <div class="service-card">
+            <h2>Teaching About Healthcare</h2>
+            <p>Learn about various health topics through our educational programs, webinars, and resources.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="call-to-action">
+        <h2>Ready to Transform Your Healthcare Experience?</h2>
+        <p>Join Medfluxx today and take the first step toward accessible, compassionate, and personalized healthcare. Whether you're seeking virtual consultations, medication delivery, or expert advice, we're here to help.</p>
+        <br>
+        <br>
+        <a href="signup.html">Get Started Now</a>
+    </section>
+
+   <!-- Footer Section -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

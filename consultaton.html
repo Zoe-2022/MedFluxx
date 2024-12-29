@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Consultation - Medfluxx</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS if needed -->
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: i.6;
+        }
+
+        .service-card p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 15px 10px 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Consultation Section */
+        .consultation-section {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .consultation-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .services-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .book-now-btn {
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .book-now-btn:hover {
+            background-color: #00509e;
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 12px 24px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #00509e;
+        }
+
+        /* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Consultation Services -->
+        <section class="consultation-section">
+            <h2>Consultation Services</h2>
+            <p>Choose from our range of consultation services designed to meet your health needs.</p>
+
+            <!-- Services List -->
+            <div class="services-list">
+                <div class="service-card">
+                    <h3>Health Consultation</h3>
+                    <p>Get expert advice on your health concerns with one-on-one consultation.</p>
+                    <a href="#bookingForm" class="book-now-btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <h3>Virtual Consultation</h3>
+                    <p>Book a virtual consultation with a healthcare professional from the comfort of your home.</p>
+                    <a href="#bookingForm" class="book-now-btn">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <h3>Wellness Coaching</h3>
+                    <p>Get personalized wellness and lifestyle coaching to improve your overall health.</p>
+                    <a href="#bookingForm" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form -->
+        <section class="booking-form" id="bookingForm">
+            <h3>Book Your Consultation</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Consultation Service</label>
+                    <select id="service" name="service" required>
+                        <option value="health-consultation">Health Consultation</option>
+                        <option value="virtual-consultation">Virtual Consultation</option>
+                        <option value="wellness-coaching">Wellness Coaching</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Let us know any specific questions or concerns." required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Book Now</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <br>
+     <!-- Footer Section -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+ <!-- JavaScript -->
+ <script>
+  // Form Submission Handler
+  document.getElementById('consultationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+
+      // Simple validation
+      if (!name || !email || !service || !message) {
+          displayMessage('Please fill in all fields.', 'error');
+          return;
+      }
+
+      // If successful
+      displayMessage('Your consultation has been booked successfully!', 'success');
+  });
+
+  // Function to display success or error messages
+  function displayMessage(msg, type) {
+      const formMessage = document.getElementById('form-message');
+      formMessage.textContent = msg;
+      formMessage.style.display = 'block';
+      formMessage.style.color = type === 'success' ? 'green' : 'red';
+      //Clear the message after 5 seconds
+      setTimeout (() => {
+        formMessage.style.display = 'none';
+      }, 5000);
+    }
+    </script>
+</body>
+</html>

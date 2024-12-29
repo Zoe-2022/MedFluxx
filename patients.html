@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Medfluxx</title>
+   <style>
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-info {
+    text-align: center;
+    margin: 20px;
+}
+
+.profile-img-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.make-order {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.make-order h2 {
+    text-align: center;
+    color: #0056b3;
+}
+
+.location-section,
+.order-details {
+    margin: 15px 0;
+}
+
+select, textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.logout-btn {
+    max-width: fit-content;
+}
+
+button:hover {
+    background-color: #003f7f;
+}
+
+
+
+/* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+.logout-container {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+
+   </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Medfluxx</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Medfluxx Patient Profile</h1>
+    </header>
+
+    <section class="profile-info">
+        <div class="profile-img-container">
+            <img src="profile-icon.png" alt="Profile Icon" class="profile-img">
+        </div>
+        <h2>John Doe</h2>
+        <p>Medfluxx Secret Code: <strong>JOHN123</strong></p>
+    </section>
+
+    <section class="make-order">
+        <h2>Make an Order</h2>
+        
+        <!-- Location Section -->
+        <div class="location-section">
+            <label for="country">Select Country</label>
+            <select id="country" name="country" required>
+                <option value="">Choose a country</option>
+                <!-- Country options dynamically added -->
+            </select>
+            <label for="state">Select State</label>
+            <select id="state" name="state" required>
+                <option value="">Choose a state</option>
+                <!-- State options dynamically added -->
+            </select>
+            <label for="town">Select Town</label>
+            <select id="town" name="town" required>
+                <option value="">Choose a town</option>
+                <!-- Town options dynamically added -->
+            </select>
+        </div>
+
+        <!-- Pharmacy and Medication Selection -->
+        <div class="order-details">
+            <label for="pharmacy">Select Pharmacy or Hospital</label>
+            <select id="pharmacy" name="pharmacy" required>
+                <option value="">Choose a pharmacy or hospital</option>
+                <!-- Pharmacy/Hospital options dynamically added -->
+            </select>
+
+            <label for="medication">Select Medication</label>
+            <select id="medication" name="medication" required>
+                <option value="">Choose a medication</option>
+                <!-- Medication options dynamically added -->
+            </select>
+
+            <p>Price: <span id="medication-price">0.00</span></p>
+
+            <label for="prescription">Upload Prescription (if required)</label>
+            <input type="file" id="prescription" name="prescription">
+            
+            <label for="symptoms">Describe Your Symptoms (if unsure about medication)</label>
+            <textarea id="symptoms" name="symptoms"></textarea>
+
+            <button id="order-btn">Place Order</button>
+        </div>
+
+        <section class="order-status">
+            <h3>Order Status</h3>
+            <button width="80" id="received-order">Received Order</button>
+        </section>
+        
+    </section>
+
+    <div class="logout-container">
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    
+
+    
+   <!-- Footer Section -->
+ <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+    <script>
+        // Sample data for countries, states, towns, pharmacies, and medications
+const countries = ["USA", "Canada", "Nigeria"];
+const states = {
+    USA: ["California", "Texas", "Florida"],
+    Canada: ["Ontario", "Quebec", "British Columbia"],
+    Nigeria: ["Lagos", "Abuja", "Rivers"]
+};
+const towns = {
+    "California": ["Los Angeles", "San Francisco", "San Diego"],
+    "Texas": ["Houston", "Dallas", "Austin"],
+    "Lagos": ["Ikeja", "Lekki", "Victoria Island"]
+};
+const pharmacies = [
+    { name: "Pharmacy 1", location: "Los Angeles", drugs: ["Aspirin", "Tylenol"], price: 10.00 },
+    { name: "Pharmacy 2", location: "Lagos", drugs: ["Ibuprofen", "Paracetamol"], price: 8.00 }
+];
+const medications = ["Aspirin", "Tylenol", "Ibuprofen", "Paracetamol"];
+
+// Populate country dropdown
+const countrySelect = document.getElementById("country");
+countries.forEach(country => {
+    const option = document.createElement("option");
+    option.value = country;
+    option.textContent = country;
+    countrySelect.appendChild(option);
+});
+
+// Update states based on selected country
+countrySelect.addEventListener("change", function() {
+    const stateSelect = document.getElementById("state");
+    const townSelect = document.getElementById("town");
+    stateSelect.innerHTML = "<option value=''>Choose a state</option>";
+    townSelect.innerHTML = "<option value=''>Choose a town</option>";
+
+    const selectedCountry = countrySelect.value;
+    if (selectedCountry) {
+        states[selectedCountry].forEach(state => {
+            const option = document.createElement("option");
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+    }
+});
+
+// Update towns based on selected state
+document.getElementById("state").addEventListener("change", function() {
+    const townSelect = document.getElementById("town");
+    townSelect.innerHTML = "<option value=''>Choose a town</option>";
+
+    const selectedState = this.value;
+    if (selectedState) {
+        towns[selectedState].forEach(town => {
+            const option = document.createElement("option");
+            option.value = town;
+            option.textContent = town;
+            townSelect.appendChild(option);
+        });
+    }
+});
+
+// Populate pharmacy selection
+const pharmacySelect = document.getElementById("pharmacy");
+pharmacies.forEach(pharmacy => {
+    const option = document.createElement("option");
+    option.value = pharmacy.name;
+    option.textContent = pharmacy.name;
+    pharmacySelect.appendChild(option);
+});
+
+// Populate medication selection and price
+const medicationSelect = document.getElementById("medication");
+medications.forEach(medication => {
+    const option = document.createElement("option");
+    option.value = medication;
+    option.textContent = medication;
+    medicationSelect.appendChild(option);
+});
+
+// Update price when medication is selected
+medicationSelect.addEventListener("change", function() {
+    const selectedMedication = this.value;
+    const selectedPharmacy = pharmacySelect.value;
+    const price = pharmacies.find(pharmacy => pharmacy.name === selectedPharmacy && pharmacy.drugs.includes(selectedMedication))?.price || 0;
+    document.getElementById("medication-price").textContent = price.toFixed(2);
+});
+
+// Handle order placement
+document.getElementById("order-btn").addEventListener("click", function() {
+    alert("Your order has been placed!");
+});
+
+// Simulate Order Received Button
+document.getElementById("received-order").addEventListener("click", function() {
+    alert("Order received! Thank you for your confirmation.");
+});
+
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to login page (or handle session clearing logic here)
+        window.location.href = 'ordermedication.html'; // Replace 'ordermedication.html' with the actual login page URL
+    }
+}
+
+
+    </script>
+</body>
+</html>

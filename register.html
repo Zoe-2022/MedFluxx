@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Medfluxx Ordering Medication</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #0056b3;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.registration-form {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #003f7f;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    color: #dddddd;
+    font-size: 14px;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #00aaff;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    color: #dddddd;
+    font-size: 16px;
+    text-decoration: none;
+}
+.social-links li a:hover {
+    color: #00aaff;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Medfluxx - Register Now!</h1>
+        <p>Join the Medfluxx platform to easily order medication from trusted pharmacies and healthcare providers.</p>
+    </header>
+
+    <section class="registration-form">
+        <form id="registerForm">
+            <label for="userType">Select Registration Type:</label>
+            <select id="userType" name="userType" required>
+                <option value="patient">Patient</option>
+                <option value="pharmacy">Pharmacy</option>
+                <option value="pharmacist">Pharmacist</option>
+                <option value="hospital">Hospital</option>
+                <option value="doctor">Doctor</option>
+                <option value="rider">Rider</option>
+            </select>
+
+            <!-- General Fields -->
+            <label for="firstName">Full Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Permanent Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="city">City/Town:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="cityCode">City Code Number:</label>
+            <input type="text" id="cityCode" name="cityCode" required>
+
+            <label for="photo">Upload a Photo:</label>
+            <input type="file" id="photo" name="photo" required>
+
+            <label for="password">Create Strong Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Additional Fields for Specific Roles -->
+            <div id="additionalFields"></div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="successMessage" style="color: green; display: none;">Registration successful! Check your email to confirm.</p>
+    </section>
+
+    <!-- Back to Login Link -->
+    <p>Already have an account? <a href="ordermedication.html">Back to Login</a></p>
+</section>
+
+    <!-- Footer Section -->
+ <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Medfluxx</h4>
+                <p>“Where Technology Meets Compassion and Care Meets Innovation.”</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/medfluxx" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/medfluxx" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/medfluxx" target="_blank">Instagram</a></li>
+                    <li><a href="https://youtube.com/medfluxx" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Medfluxx. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        document.getElementById('userType').addEventListener('change', function() {
+    const userType = this.value;
+    const additionalFields = document.getElementById('additionalFields');
+    additionalFields.innerHTML = ''; // Clear previous additional fields
+
+    switch(userType) {
+        case 'patient':
+            additionalFields.innerHTML = `
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" required>
+            `;
+            break;
+
+        case 'pharmacy':
+            additionalFields.innerHTML = `
+                <label for="pharmacyName">Name of Pharmacy:</label>
+                <input type="text" id="pharmacyName" name="pharmacyName" required>
+                <label for="licenseNumber">Pharmacy License Number:</label>
+                <input type="text" id="licenseNumber" name="licenseNumber" required>
+            `;
+            break;
+
+        case 'pharmacist':
+            additionalFields.innerHTML = `
+                <label for="workingPlace">Place of Work:</label>
+                <input type="text" id="workingPlace" name="workingPlace" required>
+                <label for="licenseNumber">Pharmacist License Number:</label>
+                <input type="text" id="licenseNumber" name="licenseNumber" required>
+            `;
+            break;
+
+        case 'hospital':
+            additionalFields.innerHTML = `
+                <label for="hospitalName">Name of Hospital:</label>
+                <input type="text" id="hospitalName" name="hospitalName" required>
+                <label for="hospitalLicense">Hospital License Number:</label>
+                <input type="text" id="hospitalLicense" name="hospitalLicense" required>
+            `;
+            break;
+
+        case 'doctor':
+            additionalFields.innerHTML = `
+                <label for="workPlace">Place of Work:</label>
+                <input type="text" id="workPlace" name="workPlace" required>
+                <label for="doctorLicense">Doctor License Number:</label>
+                <input type="text" id="doctorLicense" name="doctorLicense" required>
+            `;
+            break;
+
+        case 'rider':
+            additionalFields.innerHTML = `
+                <label for="riderLicense">Driver's/Rider's License:</label>
+                <input type="text" id="riderLicense" name="riderLicense" required>
+            `;
+            break;
+
+        default:
+            break;
+    }
+});
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Here you would handle form submission to the server (e.g., with AJAX or Fetch API)
+    // For now, simulate success
+    document.getElementById('successMessage').style.display = 'block';
+});
+
+    </script>
+</body>
+</html>
